@@ -1,0 +1,47 @@
+{
+  "name": "angular-weblineindia-phone-number",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@angular/common": "8.x - 9.x",
+    "@angular/core": "8.x - 9.x",
+    "@angular/forms": "8.x - 9.x",
+    "google-libphonenumber": "^3.2.1",
+    "intl-tel-input": "^14.0.6",
+    "ngx-bootstrap": "^5.6.1",
+    "@fortawesome/angular-fontawesome": "^0.2.1",
+    "@fortawesome/fontawesome-free": "^5.13.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.29",
+    "@fortawesome/free-solid-svg-icons": "^5.13.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weblineindia/AngularJS-Phone-Number-Input"
+  },
+  "description": "An AngularJS package for entering and validating international telephone numbers. It also adds a flag dropdown to any input, detects the user's country, displays a relevant placeholder and provides formatting / validation methods.",
+  "homepage": "https://www.weblineindia.com/software-development-resources.html",
+  "author": "weblineindia",
+  "keywords": [
+    "angularjs",
+    "angular-weblineindia-phone-number",
+    "phone-number-validation",
+    "angular-phonenumber-input",
+    "phone-number-input",
+    "phone-input-class",
+    "international-telephone-input",
+    "telephone-input"
+  ],
+  "license": "MIT",
+  "main": "bundles/angular-weblineindia-phone-number.umd.js",
+  "module": "fesm5/angular-weblineindia-phone-number.js",
+  "es2015": "fesm2015/angular-weblineindia-phone-number.js",
+  "esm5": "esm5/angular-weblineindia-phone-number.js",
+  "esm2015": "esm2015/angular-weblineindia-phone-number.js",
+  "fesm5": "fesm5/angular-weblineindia-phone-number.js",
+  "fesm2015": "fesm2015/angular-weblineindia-phone-number.js",
+  "typings": "angular-weblineindia-phone-number.d.ts",
+  "metadata": "angular-weblineindia-phone-number.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.10.0"
+  }
+}

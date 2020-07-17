@@ -1,0 +1,30 @@
+import { CountryISO } from "./enums/country-iso.enum";
+import { SearchCountryField } from "./enums/search-country-field.enum";
+import { TooltipLabel } from "./enums/tooltip-label.enum";
+import { EventEmitter } from "@angular/core";
+import { FormGroup } from "@angular/forms";
+export declare class PhoneComponent {
+    faPlus: any;
+    faMinus: any;
+    isUniquePhone: Boolean;
+    separateDialCode: boolean;
+    SearchCountryField: typeof SearchCountryField;
+    TooltipLabel: typeof TooltipLabel;
+    CountryISO: typeof CountryISO;
+    preferredCountries: CountryISO[];
+    phoneForm: FormGroup;
+    set value(value: any);
+    get value(): any;
+    index: Number;
+    phoneArray: any;
+    isShowPlus: Boolean;
+    phoneValidationErrorMsg: String;
+    phoneUniqueErrorMsg: String;
+    maxLength: Number;
+    isMultiple: Boolean;
+    onMultiple: EventEmitter<any>;
+    change: EventEmitter<any>;
+    changePreferredCountries(): void;
+    onChangeinput(event: any, index: any, phoneArray: any): void;
+    onClickMultiplePhone(): void;
+}
