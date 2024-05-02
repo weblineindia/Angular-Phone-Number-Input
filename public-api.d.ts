@@ -1,3 +1,3 @@
-export * from './lib/phone.service';
-export * from './lib/phone.component';
-export * from './lib/phone.module';
+export * from './lib/angular-weblineindia-phone-number.service';
+export * from './lib/angular-weblineindia-phone-number.component';
+export * from './lib/angular-weblineindia-phone-number.module';

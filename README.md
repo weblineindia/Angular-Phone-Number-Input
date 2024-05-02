@@ -1,174 +1,152 @@
-# AngularJS - Phone Number Input
+# Angular - Phone Number Component
 
-An AngularJS package for entering and validating international telephone numbers. It also adds a flag dropdown to any input, detects the user's country, displays a relevant placeholder and provides formatting / validation methods.
+A Angular based Phone Number component used to specify an input field where the user can enter data.
 
 ## Table of contents
 
-- [Supports](#supports)
+- [Browser Support](#browser-support)
 - [Demo](#demo)
-- [Install Dependencies](#install-dependencies)
-- [Add Dependency Style](#add-dependency-style)
+- [Getting started](#getting-started)
 - [Usage](#usage)
-- [Example](#example)
-- [Options](#options)
+- [Available Props](#available-props)
 - [Methods](#methods)
-- [Supported Formats](#supported-formats)
 - [Want to Contribute?](#want-to-contribute)
 - [Collection of Components](#collection-of-components)
 - [Changelog](#changelog)
-- [Credits](#credits)
 - [License](#license)
 - [Keywords](#Keywords)
 
-## Supports:
+## Browser Support
 
-- Angular 8
-- Angular 9
-- ReactiveFormsModule
-- FormsModule
-- Validation with [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber)
-
+| ![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png) | ![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![IE](https://raw.github.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png) |
+| ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| 83.0 ✔                                                                                   | 77.0 ✔                                                                                      | 13.1.1 ✔                                                                                 | 83.0 ✔                                                                             | 11.9 ✔                                                                                                                       |
 
 ## Demo
 
-[![](phoneNg.gif)](https://github.com/weblineindia/AngularJS-Phone-Number-Input/phone.gif)
+[![](phone-numbers.gif)](https://github.com/weblineindia/AngularJS-Phone-Number/phone-numbers.gif)
 
+## Getting started
 
-### Install Dependencies
+Install the npm package:
 
-`$ npm install angular-weblineindia-phone-number --save`
-
-`$ npm install google-libphonenumber --save`
-
-`$ ng add ngx-bootstrap`
-
-### Add Dependency Style
-
-Add _'angular-weblineindia-phone-number'_ style file:
-
-`./node_modules/angular-weblineindia-phone-number/build/css/intlTelInput.css`
-
-to **angular.json** styles array:
-
-```json
-
-"styles": [
-  "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-  "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
-  "./node_modules/angular-weblineindia-phone-number/build/css/intlTelInput.css",
-  "src/styles.css"
-],
-
+```bash
+npm install angular-weblineindia-phone-number
+#OR
+yarn add angular-weblineindia-phone-number
 ```
-
-### Install This Library
-
-`$ npm install angular-weblineindia-phone-number --save`
 
 ## Usage
 
-Add `BsDropDownModule` and `PhoneModule` to your module file:
+Use the `<angular-weblineindia-phone-number>` component:
 
-```javascript
-import { PhoneModule } from "angular-weblineindia-phone-number";
+Add in app.module.ts file
 
-imports: [BsDropdownModule.forRoot(), PhoneModule];
+```
+import { AppComponent } from './app.component';
+import { AngularWeblineindiaPhoneNumberModule } from 'angular-weblineindia-phone-number';
+
+@NgModule({
+  imports: [
+    AngularWeblineindiaPhoneNumberModule,
+  ],
+})
+export class AppModule {}
+
 ```
 
-## Example
-
-
-```html
-<div *ngFor="let value of phoneNumberValue;let indexOfelement=index;">
-  <lib-phone
-    [value]="value.phone"
-    [index]="indexOfelement"
-    (onMultiple)="onMultiplePhone()"
-    (change)="onChangeInput($event)"
-    [phoneArray]="phoneNumberValue"
-    [isShowPlus]="phoneNumberValue.length-1 === indexOfelement"
-    [phoneValidationErrorMsg]="phoneValue.phoneValidationErrorMsg"
-    [phoneUniqueErrorMsg]="phoneValue.phoneUniqueErrorMsg"
-    [maxLength]="phoneValue.maxLength"
-    [isMultiple]="phoneValue.isMultiple"
-  ></lib-phone>
-</div>
-```
+Add in app.component.ts file
 
 ```typescript
-import { Component } from "@angular/core";
-
-@Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"]
-})
 export class AppComponent {
-  phoneNumberValue: any = [
-    {
-      phone: "",
-      code: ""
-    }
-  ];
-  phoneValue: any = {
-    phoneValidationErrorMsg: "Phone number is invalid",
-    phoneUniqueErrorMsg: "Do not enter same phone number",
-    maxLength: 15,
-    isMultiple: true
-  };
+  constructor() {}
+  // based on event you can manage isInvalidPhoneNumber and invalidMessage
+  isInvalidPhoneNumber: boolean = false;
+  invalidMessage: string = "";
 
-  onMultiplePhone() {
-    this.phoneNumberValue.push({ phone: "" });
+  onCountrySelected(event: any): void {
+    console.log("onCountrySelected: ", event);
   }
-  onChangeInput(data) {
-    this.phoneNumberValue[data.index].phone = data.event.target.value;
-    this.phoneNumberValue[data.index].code = data.code;
+
+  onFocusHandler(event: any): void {
+    console.log("onFocusHandler: ", event.target.value);
+  }
+  onBlurHandler(event: any): void {
+    console.log("onBlurHandler: ", event.target.value);
+  }
+  onChangeHandler(event: any): void {
+    console.log("onChangeHandler: ", event.target.value);
+  }
+  onKeyPressHandler(event: any): void {
+    console.log("onKeyPressHandler: ", event.target.value);
+  }
+  onKeyDownHandler(event: any): void {
+    console.log("onKeyDownHandler: ", event.target.value);
+  }
+  onKeyUpHandler(event: any): void {
+    console.log("onKeyUpHandler: ", event.target.value);
   }
 }
 ```
 
-## Options
+Add in app.component.css file
 
-| Options                  | Type                     | Default                    | Description                                                                                                   |
-| ------------------------ | ------------------------ | -------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| cssClass                 | `string`                 | `control-form`             | Bootstrap input css class or your own custom one.                                                             |
-| preferredCountries       | `<CountryISO>[]`         | `[]`                       | List of countries, which will appear at the top.                                                              |
-| onlyCountries            | `<CountryISO>[]`         | `[]`                       | List of manually selected countries, which will appear in the dropdown.                                       |
-| enableAutoCountrySelect  | `boolean`                | `false`                    | Toggle automatic country (flag) selection based on user input.                                                |
-| enablePlaceholder        | `boolean`                | `true`                     | Input placeholder text, which addapts to the country selected.                                                |
-| searchCountryFlag        | `boolean`                | `false`                    | Enables input search box for countries in the flag dropdown.                                                  |
-| searchCountryField       | `<SearchCountryField>[]` | `[SearchCountryField.All]` | Customize which fields to search in, if `searchCountryFlag` is enabled. Use `SearchCountryField` helper enum. |
-| searchCountryPlaceholder | `string`                 | `'Search Country'`         | Placeholder value for `searchCountryField`                                                                    |
-| maxLength                | `number`                 | `None`                     | Add character limit.                                                                                          |
-| tooltipField             | `<TooltipLabel>`         | `None`                     | Set tooltip on flag hover. Use `TooltipLabel` helper enum for label type options.                             |
-| selectFirstCountry       | `boolean`                | `true`                     | Selects first country from `preferredCountries` if is set. If not then uses main list.                        |
-| phoneValidation          | `boolean`                | `true`                     | Disable phone validation.                                                                                     |
-| inputId                  | `string`                 | `phone`                    | Unique ID for `<input>` element.                                                                              |
-| selectedCountryISO       | `<CountryISO>`           | `None`                     | Set specific country on load.                                                                                 |
-| separateDialCode         | `boolean`                | `false`                    | Visually separate dialcode into the drop down element.                                                        |
-| countryChange            | `<Country>`              | `None`                     | Emits country value when the user selects a country from the dropdown.                                        |
-| phoneValidationErrorMsg            | `string`              |                      | default phone validation error message                                       |
-| phoneUniqueErrorMsg            | `string`              |                      | default phone unique error message                                       |
-| maxLength            | `number`              |      15                | default phone maxlength                                       |
-| isMultiple            | `boolean`              |      true                | for add multiple phone number                                        |
+```
+::ng-deep .phoneNumberInput {
+  display: flex;
+}
 
+::ng-deep .countrySelectBox {
+  margin-right: 5px;
+}
 
+::ng-deep .inputBox {
+  margin-left: 5px;
+}
 
+::ng-deep .errorMessage {
+  color: RED;
+  margin: 0;
+}
+
+::ng-deep .mainDiv {
+  display: flex;
+}
+```
+
+Add in app.component.html file
+
+```html
+<angular-weblineindia-phone-number name="'text'" value="'initalValue'" phoneNumberInput="phoneNumberInput" countrySelectBox="countrySelectBox" inputBox="inputBox" errorMessage="errorMessage" placeholder="'Add placeholder'" [countryCode]="'+1784'" [disabled]="false" [require]="true" [isInvalidPhoneNumber]="isInvalidPhoneNumber" [invalidMessage]="invalidMessage" (focus)="onFocusHandler($event)" (blur)="onBlurHandler($event)" (keyPress)="onKeyPressHandler($event)" (keyDown)="onKeyDownHandler($event)" (keyUp)="onKeyUpHandler($event)" (countrySelected)="onCountrySelected($event)"></angular-weblineindia-phone-number>
+```
+
+## Available Props
+
+| Prop                 | Type    | default | Description                                     |
+| -------------------- | ------- | ------- | ----------------------------------------------- |
+| name                 | String  |         | Name for the input                              |
+| value                | String  |         | value for the input                             |
+| phoneNumberInput     | String  |         | CSS class applied for phone number input.       |
+| countrySelectBox     | String  |         | CSS class applied for selection input.          |
+| inputBox             | String  |         | CSS class applied for input.                    |
+| errorMessage         | String  |         | CSS class applied for error message.            |
+| placeholder          | String  |         | The input field will get this placeholder text  |
+| countryCode          | String  | +91     | Country code which user provided by default     |
+| disabled             | boolean | false   | If true, disables the input field.              |
+| require              | boolean |         | If true, makes the input field mandatory.       |
+| isInvalidPhoneNumber | boolean | false   | Indicates if the password is invalid            |
+| invalidMessage       | String  |         | Message to display when the password is invalid |
 
 ## Methods
 
-| Name       | Description                                  |
-| ---------- | -------------------------------------------- |
-| onMultiple | Gets triggered when click on plus icon.      |
-| change     | Gets triggered every time input got changed. |
-
-## Supported Formats
-
-Following formats are supported
-
-- NATIONAL // Produces "044 668 18 00"
-- INTERNATIONAL // Produces "+41 44 668 18 00"
-- E164 // Produces "+41446681800"
+| Name            | Description                                                      |
+| --------------- | ---------------------------------------------------------------- |
+| focus           | Gets triggered when the autocomplete input field receives focus. |
+| blur            | Gets triggered when the autocomplete input field loses focus.    |
+| KeyPress        | Gets triggered when a key gets pressed.                          |
+| KeyDown         | Gets triggered when a key gets down.                             |
+| KeyUp           | Gets triggered when a key gets up.                               |
+| countrySelected | Gets trigged when change the country code from dropdown.         |
 
 ## Want to Contribute?
 
@@ -190,16 +168,12 @@ We have built many other components and free resources for software development 
 
 Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.md).
 
-## Credits
-
-angular-weblineindia-phone-number is inspired by the [ngx-intl-tel-input](https://www.npmjs.com/package/ngx-intl-tel-input).
-
 ## License
 
 [MIT](LICENSE)
 
-[mit]: https://github.com/weblineindia/AngularJS-Phone-Number-Input/blob/master/LICENSE
+[mit]: https://github.com/weblineindia/AngularJS-Phone-Number/blob/master/LICENSE
 
 ## Keywords
 
-angularjs, angular-weblineindia-phone-number, phone-number-validation, angular-phonenumber-input, phone-number-input, phone-input-class, international-telephone-input, telephone-input
+angular-weblineindia-phone-number, phonenumber, input, angular, angular-component, phonenumber-component, phone-number-input

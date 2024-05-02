@@ -1,6 +1,0 @@
-export var TooltipLabel;
-(function (TooltipLabel) {
-    TooltipLabel["Name"] = "name";
-    TooltipLabel["Iso2"] = "iso2";
-})(TooltipLabel || (TooltipLabel = {}));
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidG9vbHRpcC1sYWJlbC5lbnVtLmpzIiwic291cmNlUm9vdCI6Im5nOi8vYW5ndWxhci13ZWJsaW5laW5kaWEtcGhvbmUtbnVtYmVyLyIsInNvdXJjZXMiOlsibGliL2VudW1zL3Rvb2x0aXAtbGFiZWwuZW51bS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxNQUFNLENBQU4sSUFBWSxZQUdYO0FBSEQsV0FBWSxZQUFZO0lBQ3ZCLDZCQUFhLENBQUE7SUFDYiw2QkFBYSxDQUFBO0FBQ2QsQ0FBQyxFQUhXLFlBQVksS0FBWixZQUFZLFFBR3ZCIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGVudW0gVG9vbHRpcExhYmVsIHtcblx0TmFtZSA9ICduYW1lJyxcblx0SXNvMiA9ICdpc28yJ1xufVxuIl19

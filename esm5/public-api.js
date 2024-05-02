@@ -1,7 +1,0 @@
-/*
- * Public API Surface of phone
- */
-export * from './lib/phone.service';
-export * from './lib/phone.component';
-export * from './lib/phone.module';
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL2FuZ3VsYXItd2VibGluZWluZGlhLXBob25lLW51bWJlci8iLCJzb3VyY2VzIjpbInB1YmxpYy1hcGkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7O0dBRUc7QUFFSCxjQUFjLHFCQUFxQixDQUFDO0FBQ3BDLGNBQWMsdUJBQXVCLENBQUM7QUFDdEMsY0FBYyxvQkFBb0IsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qXG4gKiBQdWJsaWMgQVBJIFN1cmZhY2Ugb2YgcGhvbmVcbiAqL1xuXG5leHBvcnQgKiBmcm9tICcuL2xpYi9waG9uZS5zZXJ2aWNlJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL3Bob25lLmNvbXBvbmVudCc7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9waG9uZS5tb2R1bGUnO1xuIl19
